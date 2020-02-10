@@ -1,0 +1,27 @@
+{
+  "name": "heroku-ts-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "hiro08gh",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^13.7.0",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "ts:watch": "tsc -w",
+    "ts:build": "tsc",
+    "serve": "nodemon dist/server.js",
+    "watch": "concurrently \"npm run ts:watch\" \"npm run serve\"",
+    "build": "npm run ts:build",
+    "prod:serve": "node dist/server.js",
+    "start": "npm run build && npm run prod:serve",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  }
+}
