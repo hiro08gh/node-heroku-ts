@@ -1,12 +1,10 @@
 import * as express from 'express';
+import * as helmet from 'helmet';
 
 const app = express();
+app.use(helmet());
 
 app.get('/', (req, res) => {
-  res.json(JSON.stringify({ok: 1})).end();
-});
-
-app.get('/ok', (req, res) => {
   res.send('ok');
 });
 

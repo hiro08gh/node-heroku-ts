@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
+const helmet = require("helmet");
 const app = express();
+app.use(helmet());
 app.get('/', (req, res) => {
-    res.json(JSON.stringify({ ok: 1 })).end();
-});
-app.get('/ok', (req, res) => {
     res.send('ok');
 });
 app.listen(process.env.PORT || 5000, () => {
